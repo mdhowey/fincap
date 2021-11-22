@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ExpenseSchema = new mongoose.Schema(
+const TransactionSchema = new mongoose.Schema(
   {
     planned: {
       type: Boolean,
@@ -25,4 +25,4 @@ const ExpenseSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Expense', ExpenseSchema);
+module.exports = mongoose.model('Transaction', TransactionSchema);

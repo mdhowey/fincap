@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 
 const message = 'Password [and|or] Username [are|is] incorrect';
 
-/* ==== Routes ==== m Register */
+/* ==== Routes ==== */
+
+/* Register */
 router.post('/register', async(req, res) => {
   try{
 
