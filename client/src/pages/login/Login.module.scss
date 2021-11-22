@@ -1,0 +1,43 @@
+@import '../../sass/index';
+
+.login {
+  height: calc(100vh - #{$headerHeight});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__title {
+    margin-bottom: $spacing-lg;
+    padding: 0;
+    line-height: $spacing-lg;
+    font-size: $font-xxl;
+  }
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & input {
+      border: none;
+      color: $light;
+      background-color: $dark;
+      margin-bottom: $spacing-md;
+      padding: $spacing-sm;
+      border-radius: $btnRadius;
+      font-size: $font-lg;
+      &:focus {
+        outline: none;
+      }
+    }
+    &__login {
+      margin-bottom: $spacing-md;
+    }
+    &__login,
+    &__register {
+      @include btn($secondary);
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-lg;
+    }
+  }
+
+}
