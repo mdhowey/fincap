@@ -1,8 +1,11 @@
+import Navbar from "./components/Navbar/Navbar";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
     <div className="App">
-      <h1>Test!</h1>
+      <Navbar />
+      <Login />
     </div>
   );
 }

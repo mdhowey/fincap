@@ -1,0 +1,17 @@
+@import './variables';
+
+@mixin btn($bg) {
+  background: $bg;
+  color: $light;
+  text-decoration: none;
+  border-radius: $btnRadius;
+  border: none;
+  font-family: $Maven;
+  &:hover {
+    background:darken($bg, 4%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg, 15%);
+  }
+}
