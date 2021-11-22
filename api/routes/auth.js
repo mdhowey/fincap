@@ -2,11 +2,9 @@ const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
-const errorMessage = 'Password [and|or] Username [are|is] incorrect';
+const message = 'Password [and|or] Username [are|is] incorrect';
 
-/* ==== Routes ==== */
-
-/* Register */
+/* ==== Routes ==== m Register */
 router.post('/register', async(req, res) => {
   try{
 
@@ -32,10 +30,10 @@ router.post('/register', async(req, res) => {
 router.post('/login', async(req, res) => {
   try{
     const user = await User.findOne({username: req.body.username})
-    !user && res.status(400).json(errorMessage)
+    !user && res.status(400).json(message)
 
     const passwordCheck = await bcrypt.compare(req.body.password, user.password)
-    !passwordCheck && res.status(400).json(errorMessage)
+    !passwordCheck && res.status(400).json(message)
 
     const {password, ...otherData} = user._doc;
     res.status(200).json(otherData);
