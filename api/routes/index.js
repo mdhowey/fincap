@@ -1,5 +1,6 @@
 module.exports = {
   auth: require("./auth"),
-  report: require("./report"),
+  user: require("./user"),
+  account: require("./account"),
   transaction: require("./transaction"),
 };
