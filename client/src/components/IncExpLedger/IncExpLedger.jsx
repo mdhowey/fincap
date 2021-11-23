@@ -4,13 +4,13 @@ import classes from './IncExpLedger.module.scss';
 export default function IncExpLedger() {
   return (
     <div className={classes.incExp}>
-      <div className={classes.incExp__inc}>
+      <div className={classes.incExp__item}>
         <h3>Income</h3>
-        <p className={classes.incExp__inc__pos}>+$0.00</p>
+        <h4 className={classes.incExp__item__pos}>+$0.00</h4>
       </div>
-      <div className={classes.incExp__exp}>
+      <div className={classes.incExp__item}>
         <h3>Expenses</h3>
-        <p className={classes.incExp__exp__neg}>-$0.00</p>
+        <h4 className={classes.incExp__item__neg}>-$0.00</h4>
       </div>
     </div>
   )
