@@ -3,6 +3,7 @@ import classes from './App.module.scss';
 import Balance from "./components/Balance/Balance";
 import IncExpLedger from "./components/IncExpLedger/IncExpLedger";
 import TransactionList from "./components/TransactionList.jsx/TransactionList";
+import AddTransaction from "./components/AddTransaction/AddTransaction";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Balance />
         <IncExpLedger />
         <TransactionList />
+        <AddTransaction />
       </div>
     </div>
   );
