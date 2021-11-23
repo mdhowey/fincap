@@ -1,11 +1,16 @@
-import Navbar from "./components/Navbar/Navbar";
-import Login from "./pages/login/Login";
+import Header from "./components/Header/Header";
+import classes from './App.module.scss';
+import Balance from "./components/Balance/Balance";
+import IncExpLedger from "./components/IncExpLedger/IncExpLedger";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Login />
+      <Header />
+      <div className={classes.container}>
+        <Balance />
+        <IncExpLedger />
+      </div>
     </div>
   );
 }
