@@ -54,9 +54,10 @@ h2 {
 
 h3 {
   font-style: normal;
-  font-weight: 700;
+  font-weight: normal;
   font-size: 18px;
   color: #333333;
+  line-height: 0;
 }
 
 h4 {
@@ -72,6 +73,9 @@ h5 {
   font-weight: 300;
   font-size: 14px;
   color: #333333;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 p {

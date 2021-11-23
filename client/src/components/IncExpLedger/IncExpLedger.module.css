@@ -85,40 +85,10 @@ p {
   color: #333333;
 }
 
-.balance {
-  padding: 4px;
-}
-
-.balance__acct {
+.incExp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0;
+  font-size: 12px;
 }
-
-.balance__acct__head {
-  font-size: 18px;
-  line-height: 0;
-  margin-bottom: 8px;
-  color: #333333;
-}
-
-.balance__acct__title {
-  margin-bottom: 8px;
-}
-
-.balance__acct__title:hover {
-  cursor: pointer;
-  color: #8a06be;
-}
-
-.balance__acct__bal {
-  margin-bottom: 8px;
-}
-/*# sourceMappingURL=Balance.module.css.map */
+/*# sourceMappingURL=IncExpLedger.module.css.map */
