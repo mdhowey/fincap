@@ -1,2 +1,114 @@
 @import '../../sass/index';
 
+.addtrans {
+  margin: $spacing-lg $spacing-md;
+  &__head{
+    margin-bottom: $spacing-lg;
+    font-weight: 700;
+  }
+  &__form {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: $spacing-md;
+    &__grp{
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        background: linear-gradient(0.25turn, rgba($med, 0.1), rgba($dark, 0.1));
+        border: none;
+        outline: none;
+        background-color: $light;
+        resize: none;
+        margin: $spacing-sm;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $btnRadius;
+        font-family: $Maven;
+        font-size: $font-sm;
+        width: 100%;
+      }
+    }
+    &__switch {
+      padding: 0;
+      position: relative;
+      margin: $spacing-sm 0 0 $spacing-md;
+      & span {
+        margin-left: $spacing-md;
+        font-style: italic;
+        margin: 0;
+        padding: 0;
+      }
+      & input[type='checkbox'] {
+        visibility: hidden;
+        &:checked {
+          + label {
+            background-color: rgba($secondary, 0.6);
+            &:after {
+              left: 24px;
+              content: 'yes';
+            }
+          }
+        }
+      }
+      & label {
+        position: absolute;
+        cursor: pointer;
+        width: 50px;
+        height: 28px;
+        top: -3px;
+        right: 0;
+        margin-right: $spacing-md;
+        background-color: rgba($dark, 0.1);
+        border-radius: $circleRadius;
+        &:after {
+          transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+          font-size: $font-xxs;
+          color: $light;
+          align-self: center;
+          content: 'no';
+          font-weight: bold;
+          text-align: center;
+          text-transform: uppercase;
+          line-height: 1;
+          padding: 7px 0;
+          width: 24px;
+          height: 24px;
+          background-color: $primary;
+          position: absolute;
+          left: 2.5px;
+          top: 2px;
+          border-radius: $circleRadius;
+          box-shadow: 0 0 $spacing-sm $light;
+        }
+      }
+    }
+    &__btncont {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      justify-content: center;
+      &__submit {
+        background-color: rgba($secondary, 0.4);
+        border: none;
+        margin: $spacing-md;
+        padding: $spacing-sm $spacing-xl;
+        border-radius: $pillRadius;
+        display: flex;
+        font-size: $font-sm;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        letter-spacing: $spacing-xxs;
+        text-transform: uppercase;
+        &:before {
+          content:"Add";
+        }
+        &:hover {
+          background-color: rgba($secondary, 0.6);
+        }
+        &:active {
+          background-color: rgba($secondary, 0.8);
+          letter-spacing: $spacing-xs;
+        }
+      }
+    }
+  }
+}

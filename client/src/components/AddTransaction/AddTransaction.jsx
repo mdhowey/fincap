@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import classes from './AddTransaction.module.scss';
+import btnAnimation from './_btn_Animation';
 
 export default function AddTransaction() {
 
@@ -12,11 +13,11 @@ export default function AddTransaction() {
 
   return (
     <div className={classes.addtrans}>
-      <h4 className={classes.addtrans__head}>Add Transaction</h4>
+      <h4 className={classes.addtrans__head}>New Transaction</h4>
       <form className={classes.addtrans__form}>
-        <div className={classes.addtrans__form_grp}>
+        <div className={classes.addtrans__form__grp}>
           <input 
-            className={classes.addtrans__form_grp__item} 
+            className={classes.addtrans__form__grp__item} 
             type='text'
             value={title}
             onChange={(e) => setTitle(e.target.value)} 
@@ -24,16 +25,16 @@ export default function AddTransaction() {
           />
           {/* DROPDOWN w/ [ENUM types] */}
           <input 
-            className={classes.addtrans__form_grp__item} 
+            className={classes.addtrans__form__grp__item} 
             type='text'
             value={type}
             onChange={(e) => setType(e.target.value)}  
             placeholder='Type'
           />
         </div>
-        <div className={classes.addtrans__form_grp}>
+        <div className={classes.addtrans__form__grp}>
           <input 
-            className={classes.addtrans__form_grp__item} 
+            className={classes.addtrans__form__grp__item} 
             type='number'
             value={amount}
             onChange={(e) => setAmount(e.target.value)} 
@@ -41,31 +42,37 @@ export default function AddTransaction() {
           />
           {/* DROPDOWN w/ user ACCOUNTS */}
           <input 
-            className={classes.addtrans__form_grp__item} 
+            className={classes.addtrans__form__grp__item} 
             type='text' 
             value={account}
             onChange={(e) => setAccount(e.target.value)}
             placeholder='Account'
           />
-          {/* Toggle (Planned yes or no) */}
-          <input 
-            className={classes.addtrans__form_grp__item} 
-            type='text' 
-            value={planned}
-            onChange={(e) => setPlanned(e.target.value)}
-            placeholder='Planned'
-          />
         </div>
-        <div className={classes.addtrans__form_grp}>
-        <textarea 
-            className={classes.addtrans__form_grp__item} 
+        <div className={classes.addtrans__form__grp}>
+          <textarea 
+            className={classes.addtrans__form__grp__item} 
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             type='text' 
             placeholder='Notes'
           />
         </div>
-        <button className={classes.addtrans__form__submit}>Add Transaction</button>
+        <div className={classes.addtrans__form__switch}>
+          <span>Planned?</span>
+          <input 
+            className={classes.addtrans__form__switch__checkbox1}
+            id='planned__toggle' 
+            type='checkbox' 
+            value={planned}
+            onChange={(e) => setPlanned(e.target.value)}
+            placeholder='Planned'
+          />
+          <label htmlFor="planned__toggle"></label>
+        </div>
+        <div className={classes.addtrans__form__btncont}>
+          <button className={classes.addtrans__form__btncont__submit}></button>
+        </div>
       </form>
     </div>
   )
