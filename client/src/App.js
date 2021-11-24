@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <ContextProvider className="App">
+    <ContextProvider>
       <Header />
       <div className={classes.container}>
         <AccountList />

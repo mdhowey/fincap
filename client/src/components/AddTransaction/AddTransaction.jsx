@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import classes from './AddTransaction.module.scss';
-import btnAnimation from './_btn_Animation';
 
 export default function AddTransaction() {
 
