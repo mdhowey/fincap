@@ -1,4 +1,5 @@
 import { createContext, useReducer } from 'react';
+import Reducer from './Reducer';
 
 // Initial State
 const INITIAL_STATE = {
@@ -38,13 +39,13 @@ const INITIAL_STATE = {
   ],
   accounts: [
     {
-      name: 'checking',
+      acctName: 'checking',
       balance: 3000,
       currency: 'USD',
       userId: '619beedd1ea2d2c98b64785d',
     },
     {
-      name: 'savings',
+      acctName: 'savings',
       balance: 10000,
       currency: 'USD',
       userId: '619beedd1ea2d2c98b64785d',
@@ -57,7 +58,7 @@ export const Context = createContext(INITIAL_STATE);
 
 // PROVIDER Componenet
 export const ContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
 
   return (<Context.Provider value={{
     transactions: state.transactions,
