@@ -1,0 +1,14 @@
+@import '../../sass/index';
+
+.transList {
+  margin: 0;
+  padding: 0;
+  &__head {
+    margin: $spacing-lg $spacing-md;
+    font-weight: 700;
+  }
+  &__list {
+    margin: 0 $spacing-md;
+    padding: 0;
+  }
+}

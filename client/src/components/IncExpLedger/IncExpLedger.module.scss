@@ -6,7 +6,7 @@
   align-items: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: linear-gradient(0.25turn, rgba($secondary, 0.1), rgba($primary, 0.1));
-  margin: $spacing-md;
+  margin: $spacing-lg $spacing-md $spacing-md $spacing-md;
   &__item {
     color: $med;
     padding: 0 $spacing-md;

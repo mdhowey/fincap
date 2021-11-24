@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   &__head {
-    margin-left: $spacing-md;
+    margin: $spacing-md $spacing-md $spacing-lg $spacing-md;
     font-weight: 700;
   }
   &__list {

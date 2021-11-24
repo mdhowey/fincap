@@ -8,7 +8,7 @@ export default function TransactionList() {
 
   return (
     <div className={classes.transList}>
-      <h4 className={classes.transList__title}>Recent Transactions</h4>
+      <h4 className={classes.transList__head}>Activity</h4>
       <ul className={classes.transList__list}>
         {transactions.map(transaction => (<Transaction key={transaction.id} transaction={transaction} />))}
       </ul>
