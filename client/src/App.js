@@ -5,6 +5,7 @@ import IncExpLedger from "./components/IncExpLedger/IncExpLedger";
 import TransactionList from "./components/TransactionList.jsx/TransactionList";
 import AddTransaction from "./components/AddTransaction/AddTransaction";
 import { ContextProvider } from "./context/Context";
+import Footer from "./components/Footer/Footer";
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <TransactionList />
         <AddTransaction />
       </div>
+      <Footer />
     </ContextProvider>
   );
 }

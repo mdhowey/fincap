@@ -5,14 +5,16 @@ import Reducer from './Reducer';
 const INITIAL_STATE = {
   transactions: [
     {
+      id: '1',
       title: 'shoes',
       type: 'expense',
-      amount: 120,
+      amount: -120,
       account: 'checking',
       planned: false,
       notes: 'shoes for wedding',
     },
     {
+      id: '2',
       title: 'programming',
       type: 'income',
       amount: 1000,
@@ -21,6 +23,7 @@ const INITIAL_STATE = {
       notes: 'weekly wage for job',
     },
     {
+      id: '3',
       title: 'freelance website',
       type: 'income',
       amount: 500,
@@ -29,9 +32,10 @@ const INITIAL_STATE = {
       notes: 'finsihed a website early for a friend',
     },
     {
+      id: '4',
       title: 'dinner',
       type: 'expense',
-      amount: 150,
+      amount: -150,
       account: 'checking',
       planned: false,
       notes: 'surprise dinner for my wife',
@@ -39,12 +43,14 @@ const INITIAL_STATE = {
   ],
   accounts: [
     {
+      id: '1',
       acctName: 'checking',
       balance: 3000,
       currency: 'USD',
       userId: '619beedd1ea2d2c98b64785d',
     },
     {
+      id: '2',
       acctName: 'savings',
       balance: 10000,
       currency: 'USD',
@@ -63,6 +69,7 @@ export const ContextProvider = ({ children }) => {
   return (<Context.Provider value={{
     transactions: state.transactions,
     accounts: state.accounts,
+    dispatch,
   }}>
     {children}
   </Context.Provider>)
