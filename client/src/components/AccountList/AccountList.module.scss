@@ -1,28 +1,14 @@
 @import '../../sass/index';
 
-.balance {
-  
-  padding: $spacing-xs;
-  &__acct {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.acctList {
+  margin: 0;
+  padding: 0;
+  &__head {
+    margin-left: $spacing-md;
+    font-weight: 700;
+  }
+  &__list {
+    margin: 0 $spacing-md;
     padding: 0;
-    &__head {
-      font-size: $font-md;
-      line-height: 0;
-      margin-bottom: $spacing-sm;
-      color: $dark;
-    }
-    &__title {
-      margin-bottom: $spacing-sm;
-      &:hover {
-        cursor: pointer;
-        color: $primary;
-      }
-    }
-    &__bal {
-      margin-bottom: $spacing-sm;
-    }
   }
 }

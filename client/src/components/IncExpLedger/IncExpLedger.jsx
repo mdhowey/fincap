@@ -7,7 +7,7 @@ export default function IncExpLedger() {
 
   const amounts = transactions.map(transaction => transaction.amount);
 
-  const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
+  // const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
 
   const inc = amounts
     .filter(item => item > 0)
@@ -16,8 +16,7 @@ export default function IncExpLedger() {
   
   const exp = amounts
     .filter(item => item < 0)
-    .reduce((acc, item) => (acc += item), 0)
-    .toFixed(2);
+    .reduce((acc, item) => (acc += item), 0);
 
   return (
     <div className={classes.incExp}>
@@ -27,7 +26,7 @@ export default function IncExpLedger() {
       </div>
       <div className={classes.incExp__item}>
         <h3>Expenses</h3>
-        <h4 className={classes.incExp__item__neg}>{Math.abs(exp)}</h4>
+        <h4 className={classes.incExp__item__neg}>{Math.abs(exp).toFixed(2)}</h4>
       </div>
     </div>
   )

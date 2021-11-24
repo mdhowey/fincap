@@ -8,7 +8,7 @@ export default function AccountList() {
 
   return (
     <div className={classes.acctList}>
-      <h4 className={classes.acctList__title}>Accounts</h4>
+      <h4 className={classes.acctList__head}>Accounts</h4>
       <ul className={classes.acctList__list}>
         {accounts.map(account => (<Account key={account.id} account={account} />))}
       </ul>
