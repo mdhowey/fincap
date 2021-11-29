@@ -1,19 +1,38 @@
-import {useState} from 'react';
+import { useState, useContext } from 'react';
 import classes from './AddTransaction.module.scss';
+import { Context } from '../../context/Context';
+
 
 export default function AddTransaction() {
 
+  const { addTransaction } = useContext(Context); 
+
   const [title, setTitle] = useState('');
   const [type, setType] = useState([]);
-  const [amount, setAmount] = useState([]);
+  const [amount, setAmount] = useState();
   const [account, setAccount] = useState([]);
   const [planned, setPlanned] = useState(false);
   const [notes, setNotes] = useState('');
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const newTransaction = {
+      id: Math.floor(Math.random() * 1000000000),
+      title,
+      amount,
+      account,
+      planned,
+      notes,
+    }
+
+    addTransaction(newTransaction);
+  }
+
   return (
     <div className={classes.addtrans}>
       <h4 className={classes.addtrans__head}>New Transaction</h4>
-      <form className={classes.addtrans__form}>
+      <form className={classes.addtrans__form} onSubmit={handleSubmit}>
         <div className={classes.addtrans__form__grp}>
           <input 
             className={classes.addtrans__form__grp__item} 

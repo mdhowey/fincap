@@ -5,7 +5,8 @@ import { useContext } from 'react';
 import { Context } from '../../context/Context';
 
 export default function Transaction({ transaction }) {
-  const { dispatch, transactions } = useContext(Context);
+
+  const { deleteTransaction} = useContext(Context);
 
   const sign = transaction.type === 'expense' ? '-' : '+';
 
@@ -14,12 +15,12 @@ export default function Transaction({ transaction }) {
       <p className={classes.tran__title}>{transaction.title}</p>
       <p className={classes.tran__amt}>{sign} ${Math.abs(transaction.amount)}</p>
       <button
-        className={classes.tran__btn}
-        onClick={() => dispatch({ type: 'DELETE_TRANS', payload: transactions.id })}>
+        className={classes.tran__btn}>
         <FiTrash2 className={classes.tran__btn__delete} />
       </button>
       <button
-        className={classes.tran__btn}>
+        className={classes.tran__btn}
+        onClick={() => deleteTransaction(transaction.id)}>
         <FiEdit className={classes.tran__btn__edit} />
       </button>
     </li>

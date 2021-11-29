@@ -1,11 +1,15 @@
 @import '../../sass/index';
 
-.login {
+.register {
   display: flex;
   flex-direction: column;
   
   &__title {
     text-align: center;
+  }
+  & p {
+    text-align: center;
+    font-size: $font-lg;
   }
   &__form {
     display: flex;
@@ -21,7 +25,6 @@
     }
     &__login,
     &__register {
-      margin-top: $spacing-md;
       font-size: $font-lg;
       border: none;
       border-radius: $btnRadius;
@@ -39,6 +42,7 @@
       }
     }
     &__register {
+      margin-top: $spacing-md;
       background-color: rgba($secondary, 0.5);
       &:hover {
         background-color: rgba($secondary, 0.7);

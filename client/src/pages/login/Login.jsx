@@ -3,7 +3,7 @@ import classes from './Login.module.scss';
 export default function Login() {
   return (
     <div className={classes.login}>
-      <div className={classes.login__title}>Login</div>
+      <h1 className={classes.login__title}>Login</h1>
       <form className={classes.login__form}>
         <input placeholder='email'/>
         <input placeholder='password'/>

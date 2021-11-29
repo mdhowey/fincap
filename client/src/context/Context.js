@@ -3,6 +3,10 @@ import Reducer from './Reducer';
 
 // Initial State
 const INITIAL_STATE = {
+  user: null,
+  isFetching: false,
+  error: false,
+
   transactions: [
     {
       id: '1',
@@ -27,7 +31,7 @@ const INITIAL_STATE = {
       title: 'freelance website',
       type: 'income',
       amount: 500,
-      account: 'checking',
+      account: 'savings',
       planned: false,
       notes: 'finsihed a website early for a friend',
     },
@@ -45,14 +49,14 @@ const INITIAL_STATE = {
     {
       id: '1',
       acctName: 'checking',
-      balance: 3000,
+      balance: 730,
       currency: 'USD',
       userId: '619beedd1ea2d2c98b64785d',
     },
     {
       id: '2',
       acctName: 'savings',
-      balance: 10000,
+      balance: 500,
       currency: 'USD',
       userId: '619beedd1ea2d2c98b64785d',
     },
@@ -66,11 +70,18 @@ export const Context = createContext(INITIAL_STATE);
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, INITIAL_STATE);
 
-  return (<Context.Provider value={{
-    transactions: state.transactions,
-    accounts: state.accounts,
-    dispatch,
-  }}>
-    {children}
-  </Context.Provider>)
+  
+
+  return (
+    <Context.Provider value={{
+      user: state.user,
+      isFetching: state.isFetching,
+      error: state.error,
+      transactions: state.transactions,
+      accounts: state.accounts,
+      dispatch
+    }}>
+      {children}
+    </Context.Provider>
+  )
 }
