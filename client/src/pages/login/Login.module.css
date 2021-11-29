@@ -84,4 +84,90 @@ p {
   font-size: 12px;
   color: #333333;
 }
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login__title {
+  text-align: center;
+}
+
+.login p {
+  text-align: center;
+  font-size: 24px;
+}
+
+.login__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login__form input {
+  font-size: 24px;
+  margin-top: 16px;
+  border: none;
+  background-color: #333333;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.login__form__login, .login__form__register {
+  font-size: 24px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  cursor: pointer;
+}
+
+.login__form__login {
+  margin-top: 16px;
+  color: white;
+  background-color: rgba(138, 6, 190, 0.5);
+}
+
+.login__form__login:hover {
+  background-color: rgba(138, 6, 190, 0.7);
+}
+
+.login__form__login:active {
+  background-color: rgba(138, 6, 190, 0.9);
+}
+
+.login__form__register {
+  color: #333333;
+  background-color: rgba(36, 224, 141, 0.5);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.login__form__register:hover {
+  background-color: rgba(36, 224, 141, 0.7);
+}
+
+.login__form__register:active {
+  background-color: rgba(36, 224, 141, 0.9);
+}
+
+.login__error {
+  color: rgba(138, 6, 190, 0.7);
+  background-color: rgba(51, 51, 51, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+}
 /*# sourceMappingURL=Login.module.css.map */

@@ -84,4 +84,147 @@ p {
   font-size: 12px;
   color: #333333;
 }
+
+.addtrans {
+  margin: 32px 16px;
+}
+
+.addtrans__head {
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+
+.addtrans__form {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 16px;
+}
+
+.addtrans__form__grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.addtrans__form__grp__item {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(99, 99, 99, 0.1)), to(rgba(51, 51, 51, 0.1)));
+  background: linear-gradient(0.25turn, rgba(99, 99, 99, 0.1), rgba(51, 51, 51, 0.1));
+  border: none;
+  outline: none;
+  background-color: white;
+  resize: none;
+  margin: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
+
+.addtrans__form__switch {
+  padding: 0;
+  position: relative;
+  margin: 8px 0 0 16px;
+}
+
+.addtrans__form__switch span {
+  margin-left: 16px;
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+
+.addtrans__form__switch input[type='checkbox'] {
+  visibility: hidden;
+}
+
+.addtrans__form__switch input[type='checkbox']:checked + label {
+  background-color: rgba(36, 224, 141, 0.6);
+}
+
+.addtrans__form__switch input[type='checkbox']:checked + label:after {
+  left: 24px;
+  content: 'yes';
+}
+
+.addtrans__form__switch label {
+  position: absolute;
+  cursor: pointer;
+  width: 50px;
+  height: 28px;
+  top: -3px;
+  right: 0;
+  margin-right: 16px;
+  background-color: rgba(51, 51, 51, 0.1);
+  border-radius: 999px;
+}
+
+.addtrans__form__switch label:after {
+  -webkit-transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  transition: 0.4s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  font-size: 10px;
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  content: 'no';
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 7px 0;
+  width: 24px;
+  height: 24px;
+  background-color: #8a06be;
+  position: absolute;
+  left: 2.5px;
+  top: 2px;
+  border-radius: 999px;
+  -webkit-box-shadow: 0 0 8px white;
+          box-shadow: 0 0 8px white;
+}
+
+.addtrans__form__btncont {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-content: center;
+}
+
+.addtrans__form__btncont__submit {
+  background-color: rgba(36, 224, 141, 0.4);
+  border: none;
+  margin: 16px;
+  padding: 8px 64px;
+  border-radius: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.addtrans__form__btncont__submit:before {
+  content: "Add";
+}
+
+.addtrans__form__btncont__submit:hover {
+  background-color: rgba(36, 224, 141, 0.6);
+}
+
+.addtrans__form__btncont__submit:active {
+  background-color: rgba(36, 224, 141, 0.8);
+  letter-spacing: 4px;
+}
 /*# sourceMappingURL=AddTransaction.module.css.map */

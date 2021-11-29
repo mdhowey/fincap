@@ -7,6 +7,10 @@
   &__title {
     text-align: center;
   }
+  & p {
+    text-align: center;
+    font-size: $font-lg;
+  }
   &__form {
     display: flex;
     flex-direction: column;
@@ -21,14 +25,15 @@
     }
     &__login,
     &__register {
-      margin-top: $spacing-md;
       font-size: $font-lg;
       border: none;
       border-radius: $btnRadius;
       padding: $spacing-sm;
       transition: all ease-in 0.2s;
+      cursor: pointer;
     }
     &__login {
+      margin-top: $spacing-md;
       color: $light;
       background-color: rgba($primary, 0.5);
       &:hover {
@@ -39,7 +44,11 @@
       }
     }
     &__register {
+      color: $dark;
       background-color: rgba($secondary, 0.5);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
       &:hover {
         background-color: rgba($secondary, 0.7);
       }
@@ -47,5 +56,11 @@
         background-color: rgba($secondary, 0.9);
       }
     }
+  }
+  &__error {
+    color: rgba($primary, 0.7);
+    background-color: rgba($dark, 0.1);
+    border-radius: $btnRadius;
+    padding: $spacing-sm;
   }
 }

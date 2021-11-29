@@ -84,4 +84,9 @@ p {
   font-size: 12px;
   color: #333333;
 }
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+}
 /*# sourceMappingURL=Header.module.css.map */

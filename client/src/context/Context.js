@@ -6,61 +6,6 @@ const INITIAL_STATE = {
   user: null,
   isFetching: false,
   error: false,
-
-  transactions: [
-    {
-      id: '1',
-      title: 'shoes',
-      type: 'expense',
-      amount: -120,
-      account: 'checking',
-      planned: false,
-      notes: 'shoes for wedding',
-    },
-    {
-      id: '2',
-      title: 'programming',
-      type: 'income',
-      amount: 1000,
-      account: 'checking',
-      planned: true,
-      notes: 'weekly wage for job',
-    },
-    {
-      id: '3',
-      title: 'freelance website',
-      type: 'income',
-      amount: 500,
-      account: 'savings',
-      planned: false,
-      notes: 'finsihed a website early for a friend',
-    },
-    {
-      id: '4',
-      title: 'dinner',
-      type: 'expense',
-      amount: -150,
-      account: 'checking',
-      planned: false,
-      notes: 'surprise dinner for my wife',
-    },
-  ],
-  accounts: [
-    {
-      id: '1',
-      acctName: 'checking',
-      balance: 730,
-      currency: 'USD',
-      userId: '619beedd1ea2d2c98b64785d',
-    },
-    {
-      id: '2',
-      acctName: 'savings',
-      balance: 500,
-      currency: 'USD',
-      userId: '619beedd1ea2d2c98b64785d',
-    },
-  ],
 };
 
 // create context 

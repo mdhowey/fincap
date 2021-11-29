@@ -1,16 +1,55 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import classes from './Register.module.scss';
 
-export default function Login() {
+export default function Register() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(false);
+    try{
+      const res = await axios.post('/auth/register', {
+        email,
+        password,
+      });
+      res.data && window.location.replace('/login');
+    } catch (err) {
+      setError(true);
+      console.log(err);
+    }
+  };
+
   return (
     <div className={classes.register}>
       <h1 className={classes.register__title}>Register</h1>
-      <form className={classes.register__form}>
-        <input placeholder='email'/>
-        <input placeholder='password'/>
-        <button className={classes.register__form__register}>Register</button>
+      <form 
+        className={classes.register__form}
+        onSubmit={handleSubmit}>
+        <input 
+          type='text'
+          placeholder='email'
+          onChange={e => setEmail(e.target.value)}
+        />
+        <input 
+          type='password'
+          placeholder='password'
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button 
+          className={classes.register__form__register}
+          type='submit'>
+          Register
+        </button>
       </form>
+      {error && <p className={classes.register__error}>
+        Account exists for this email
+      </p>}
       <p>Already have an account?</p>
-      <button className={classes.register__form__login}>Login</button>
+      <Link to='/login' className={classes.register__form__login}>Login</Link>
     </div>
   )
 }

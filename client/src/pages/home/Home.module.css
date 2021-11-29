@@ -85,18 +85,7 @@ p {
   color: #333333;
 }
 
-.acctList {
-  margin: 0;
-  padding: 0;
+.home {
+  background-color: white;
 }
-
-.acctList__head {
-  margin: 16px 16px 32px 16px;
-  font-weight: 700;
-}
-
-.acctList__list {
-  margin: 0 16px;
-  padding: 0;
-}
-/*# sourceMappingURL=AccountList.module.css.map */
+/*# sourceMappingURL=Home.module.css.map */
