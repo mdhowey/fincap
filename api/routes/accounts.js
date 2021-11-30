@@ -7,7 +7,7 @@ const Account = require('../models/Account');
 /* == Account == */
 
 /* New Account */
-router.post('/', (req, res) => {
+router.post('/newAcct', (req, res) => {
   console.log('req.body', req.body);
   Account.create( req.body, (err, newAcct) => {
     if (err) return console.log(err);

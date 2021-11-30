@@ -15,8 +15,8 @@ const AccountSchema = new mongoose.Schema(
       default: 0,
     },
     userId: {
-      type: String,
-      required: true,
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
     },
   }, 
   { timestamps: true }

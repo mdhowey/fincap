@@ -1,7 +1,9 @@
 import classes from './Account.module.scss';
+import { Context, AcctContext } from '../../context';
+import { useEffect, useState } from 'react';
 
 export default function Account({ account }) {
-  console.log(account);
+
   return (
     <li className={classes.acct}>
       <p className={classes.acct__acctName}>{account.acctName}</p>

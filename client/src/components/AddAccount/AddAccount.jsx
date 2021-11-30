@@ -1,17 +1,27 @@
 import { useState, useContext } from 'react';
 import classes from './AddAccount.module.scss';
 import { Context } from '../../context/Context';
+import axios from 'axios';
 
 export default function AddAccount() {
-
-  const { user } = useContext(Context)
-
   const [acctName, setAcctName] = useState('');
   const [currency, setCurrency] = useState('');
   const [balance, setBalance] = useState('');
+  const { user } = useContext(Context)
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const newAcct = {
+      userId: user._id,
+      acctName,
+      currency,
+      balance,
+    };
+    try {
+      await axios.post('/newAcct', newAcct);
+    } catch (err) { 
+      console.log(err);
+    }
   }
 
   return (
