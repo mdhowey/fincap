@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGO_URL, {
   .catch(err => console.log(`========== Connection issue with MongoDB ========== ${err}`));
 
 app.use('/api/auth', routes.auth);
+app.use('/api/account', routes.accounts);
 
 app.listen(PORT, () => {
   console.log(`API is running on port on ${PORT}`);
