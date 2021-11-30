@@ -2,6 +2,14 @@ const mongoose = require('mongoose');
 
 const TransactionSchema = new mongoose.Schema(
   {
+    id: {
+      type: Number,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
     planned: {
       type: Boolean,
       default: false,
@@ -11,11 +19,11 @@ const TransactionSchema = new mongoose.Schema(
       enum: ['Income', 'Expense', 'Transfer'],
       required: true,
     },
-    acctId: {
+    amount: {
       type: String,
       required: true,
     },
-    currency: {
+    acctId: {
       type: String,
       required: true,
     },

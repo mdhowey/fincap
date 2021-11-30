@@ -1,43 +1,66 @@
 @import '../../sass/index';
 
 .login {
-  height: calc(100vh - #{$headerHeight});
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  
   &__title {
-    margin-bottom: $spacing-lg;
-    padding: 0;
-    line-height: $spacing-lg;
-    font-size: $font-xxl;
+    text-align: center;
+  }
+  & p {
+    text-align: center;
+    font-size: $font-lg;
   }
   &__form {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     & input {
-      border: none;
-      color: $light;
-      background-color: $dark;
-      margin-bottom: $spacing-md;
-      padding: $spacing-sm;
-      border-radius: $btnRadius;
       font-size: $font-lg;
-      &:focus {
-        outline: none;
-      }
-    }
-    &__login {
-      margin-bottom: $spacing-md;
+      margin-top: $spacing-md;
+      border: none;
+      background-color: $dark;
+      color: $light;
+      border-radius: $btnRadius;
+      padding: $spacing-sm $spacing-md;
     }
     &__login,
     &__register {
-      @include btn($secondary);
-      padding: $spacing-sm $spacing-lg;
       font-size: $font-lg;
+      border: none;
+      border-radius: $btnRadius;
+      padding: $spacing-sm;
+      transition: all ease-in 0.2s;
+      cursor: pointer;
+    }
+    &__login {
+      margin-top: $spacing-md;
+      color: $light;
+      background-color: rgba($primary, 0.5);
+      &:hover {
+        background-color: rgba($primary, 0.7);
+      }
+      &:active {
+        background-color: rgba($primary, 0.9);
+      }
+    }
+    &__register {
+      color: $dark;
+      background-color: rgba($secondary, 0.5);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      &:hover {
+        background-color: rgba($secondary, 0.7);
+      }
+      &:active {
+        background-color: rgba($secondary, 0.9);
+      }
     }
   }
-
+  &__error {
+    color: rgba($primary, 0.7);
+    background-color: rgba($dark, 0.1);
+    border-radius: $btnRadius;
+    padding: $spacing-sm;
+  }
 }

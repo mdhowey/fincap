@@ -1,0 +1,21 @@
+@import '../../sass/index';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: $spacing-xl 0 $spacing-sm 0;
+  &__btncont {
+    line-height: 0;
+    &__icon {
+      margin: 0 $spacing-xs;
+      transition: all 0.25s ease;
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+  }
+}
+

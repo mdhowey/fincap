@@ -1,0 +1,24 @@
+@import '../../sass/index';
+
+.transList {
+  margin: 0;
+  padding: 0;
+  &__cont {
+    display: flex;
+    justify-content: space-between;
+    &__head {
+      margin: $spacing-lg $spacing-md;
+      font-weight: 700;
+    }
+    &__date {
+      margin: $spacing-lg $spacing-md;
+      font-weight: 300;
+      font-size: $font-xs;
+      font-style: italic;
+    }
+  }
+  &__list {
+    margin: 0 $spacing-md;
+    padding: 0;
+  }
+}

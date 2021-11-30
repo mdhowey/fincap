@@ -17,8 +17,20 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: white;
-  box-sizing: border-box;
-  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
 }
 
 #root {
@@ -29,28 +41,31 @@ h1 {
   font-size: 48px;
   font-family: "Pacifico", cursive;
   color: #8a06be;
-  line-height: 0;
+  line-height: 0.5;
 }
 
 h2 {
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
+  font-size: 24px;
   color: #333333;
+  line-height: 0;
 }
 
 h3 {
   font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: normal;
+  font-size: 18px;
   color: #333333;
+  line-height: 0;
 }
 
 h4 {
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 14px;
   color: #333333;
+  line-height: 0;
 }
 
 h5 {
@@ -58,6 +73,9 @@ h5 {
   font-weight: 300;
   font-size: 14px;
   color: #333333;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 p {
@@ -68,16 +86,9 @@ p {
 }
 
 .login {
-  height: calc(100vh - 45px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -85,22 +96,18 @@ p {
 }
 
 .login__title {
-  margin-bottom: 32px;
-  padding: 0;
-  line-height: 32px;
-  font-size: 48px;
+  text-align: center;
+}
+
+.login p {
+  text-align: center;
+  font-size: 24px;
 }
 
 .login__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -108,41 +115,59 @@ p {
 }
 
 .login__form input {
-  border: none;
-  color: white;
-  background-color: #333333;
-  margin-bottom: 16px;
-  padding: 8px;
-  border-radius: 8px;
   font-size: 24px;
-}
-
-.login__form input:focus {
-  outline: none;
-}
-
-.login__form__login {
-  margin-bottom: 16px;
+  margin-top: 16px;
+  border: none;
+  background-color: #333333;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
 }
 
 .login__form__login, .login__form__register {
-  background: #24e08d;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  border: none;
-  font-family: "Maven Pro", sans-serif;
-  padding: 8px 32px;
   font-size: 24px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  cursor: pointer;
 }
 
-.login__form__login:hover, .login__form__register:hover {
-  background: #1ed282;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.login__form__login {
+  margin-top: 16px;
+  color: white;
+  background-color: rgba(138, 6, 190, 0.5);
 }
 
-.login__form__login:active, .login__form__register:active {
-  background: #17a164;
+.login__form__login:hover {
+  background-color: rgba(138, 6, 190, 0.7);
+}
+
+.login__form__login:active {
+  background-color: rgba(138, 6, 190, 0.9);
+}
+
+.login__form__register {
+  color: #333333;
+  background-color: rgba(36, 224, 141, 0.5);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.login__form__register:hover {
+  background-color: rgba(36, 224, 141, 0.7);
+}
+
+.login__form__register:active {
+  background-color: rgba(36, 224, 141, 0.9);
+}
+
+.login__error {
+  color: rgba(138, 6, 190, 0.7);
+  background-color: rgba(51, 51, 51, 0.1);
+  border-radius: 8px;
+  padding: 8px;
 }
 /*# sourceMappingURL=Login.module.css.map */
