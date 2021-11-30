@@ -8,8 +8,15 @@ const INITIAL_STATE = {
   error: false,
 };
 
+const USER_ACCOUNTS = {
+  accounts: null,
+  isFetching: false,
+  error: false,
+}
+
 // create context 
 export const Context = createContext(INITIAL_STATE);
+export const AcctContext = createContext(USER_ACCOUNTS);
 
 // PROVIDER Componenet
 export const ContextProvider = ({ children }) => {
