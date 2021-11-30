@@ -4,6 +4,7 @@ import axios from 'axios';
 import classes from './Register.module.scss';
 
 export default function Register() {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
@@ -11,15 +12,20 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
+    if (email === '' || password === '') {
+      setError([true, 'All fields required.']);
+      return;
+    }
     try{
       const res = await axios.post('/auth/register', {
+        username,
         email,
         password,
       });
-      res.data && window.location.replace('/login');
+      res.data && window.location.href('/login');
     } catch (err) {
       setError(true);
-      console.log(err);
+      console.log(err.message);
     }
   };
 
@@ -29,6 +35,11 @@ export default function Register() {
       <form 
         className={classes.register__form}
         onSubmit={handleSubmit}>
+        <input 
+          type='text'
+          placeholder='username'
+          onChange={e => setUsername(e.target.value)}
+        />
         <input 
           type='text'
           placeholder='email'

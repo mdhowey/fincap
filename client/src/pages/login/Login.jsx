@@ -14,16 +14,20 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({type: 'LOGIN_START'});
+    console.log('Processing request...');
     try {
-      const res = await axios.post('/auth/register', {
+      const res = await axios.post('/auth/login', {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       });
-      dispatch({ type: 'LOGIN_SUCCSS', payload: res.data });
+      dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
       res.data && window.location.replace('/');
-    } catch (Err) {
+      console.log('It worked!');
+    } catch (err) {
       dispatch({ type: 'LOGIN_FAILURE' });
       setError(true);
+      window.location.replace('/register');
+      console.log('Something went wrong!');
     }
   }
 

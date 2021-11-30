@@ -10,9 +10,13 @@ const message = 'Password [and|or] Username [are|is] incorrect';
 router.post('/register', async(req, res) => {
   try{
 
+    const foundUser = await User.exists({ email: req.body.email });
+
+    if (foundUser) return console.log('User already exists');
+
     const salt = await bcrypt.genSalt(12);
     const hashed = await bcrypt.hash(req.body.password, salt);
-    const newUser = new User({
+    const newUser = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: hashed,
@@ -21,27 +25,45 @@ router.post('/register', async(req, res) => {
     const user = await newUser.save();
 
     const {password, ...otherData} = user._doc;
-    res.status(200).json(otherData);
-    
+    res.status(200);
+    console.log(otherData);
+
   } catch(err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 
 /* Login */
 router.post('/login', async(req, res) => {
   try{
-    const user = await User.findOne({email: req.body.email})
-    !user && res.status(400).json(message)
+    const user = await User.findOne({email: req.body.email});
+    if (!user) {
+      res.status(400).json(message);
+      res.redirect('/register');
+    }
 
-    const passwordCheck = await bcrypt.compare(req.body.password, user.password)
-    !passwordCheck && res.status(400).json(message)
+    const match = await bcrypt.compare(req.body.password, user.password);
+    if (!match) {
+      res.status(400).json(message);
+      res.send('Invalid user credentials');
+    }
 
     const {password, ...otherData} = user._doc;
     res.status(200).json(otherData);
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err.message);
   }
 })
+
+/* Logout Route */
+router.get('/logout', async function (req, res) {
+  try {
+    // await req.session.destroy();
+    return res.redirect('/login');
+  } catch (err) {
+    console.log(err.message);
+    return res.send(err.message);
+  }
+});
 
 module.exports = router;
