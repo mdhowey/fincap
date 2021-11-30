@@ -11,8 +11,7 @@ router.post('/newAcct', (req, res) => {
   console.log('req.body', req.body);
   Account.create( req.body, (err, newAcct) => {
     if (err) return console.log(err);
-    console.log(newAcct.name);
-    return res.redirect('/');
+    res.status(200).json(newAcct);
   });
 });
 

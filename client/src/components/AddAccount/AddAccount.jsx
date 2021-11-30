@@ -12,14 +12,16 @@ export default function AddAccount() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newAcct = {
-      userId: user._id,
       acctName,
       currency,
       balance,
+      userId: user._id,
     };
+    console.log(newAcct);
     try {
-      await axios.post('/newAcct', newAcct);
-    } catch (err) { 
+      const createdPost = await axios.post('http://localhost:5000/api/account/newAcct', newAcct);
+      console.log("Here is createdPost: " + createdPost)
+    } catch (err) {
       console.log(err);
     }
   }
@@ -29,27 +31,27 @@ export default function AddAccount() {
       <h4 className={classes.addAcct__head}>New Account</h4>
       <form className={classes.addAcct__form} onSubmit={handleSubmit}>
         <div className={classes.addAcct__form__grp}>
-          <input 
-            className={classes.addAcct__form__grp__item} 
+          <input
+            className={classes.addAcct__form__grp__item}
             type='text'
             value={acctName}
-            onChange={(e) => setAcctName(e.target.value)} 
+            onChange={(e) => setAcctName(e.target.value)}
             placeholder='Account Name'
           />
-          <input 
-            className={classes.addAcct__form__grp__item} 
+          <input
+            className={classes.addAcct__form__grp__item}
             type='text'
             value={currency}
-            onChange={(e) => setCurrency(e.target.value)}  
+            onChange={(e) => setCurrency(e.target.value)}
             placeholder='Currency'
           />
         </div>
         <div className={classes.addAcct__form__grp}>
-          <input 
-            className={classes.addAcct__form__grp__item} 
+          <input
+            className={classes.addAcct__form__grp__item}
             type='number'
             value={balance}
-            onChange={(e) => setBalance(e.target.value)} 
+            onChange={(e) => setBalance(e.target.value)}
             placeholder='Balance'
           />
         </div>

@@ -1,6 +1,6 @@
 import classes from './Account.module.scss';
-import { Context, AcctContext } from '../../context';
-import { useEffect, useState } from 'react';
+// import { Context, AcctContext } from '../../context/Context';
+// import { useEffect, useState } from 'react';
 
 export default function Account({ account }) {
 

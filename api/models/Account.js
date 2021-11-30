@@ -11,8 +11,8 @@ const AccountSchema = new mongoose.Schema(
       required: true,
     },
     balance: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: '0',
     },
     userId: {
       type: mongoose.Types.ObjectId,

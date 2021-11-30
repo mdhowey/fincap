@@ -24,10 +24,6 @@ const Reducer = (state, action) => {
         isFetching: false,
         error: false,
       };
-    case 'GET_ACCOUNTS':
-      return {
-        
-      }
     default: 
       return state;
   }
