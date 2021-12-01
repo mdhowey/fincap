@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Transaction = require('../models/Transaction');
 
 /* Get All Transactions */
-router.get('/transactions', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
 
   try {
 
@@ -39,7 +39,6 @@ router.post('/:id', async (req, res, next) => {
     const transaction = await Transaction.findByIdAndRemove(req.params.id);
   
     if (!transaction) return res.status(404).json(err);
-    console.log('removed successfully');
   
     await transaction.remove();
     
