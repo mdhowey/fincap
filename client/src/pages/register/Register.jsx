@@ -22,7 +22,7 @@ export default function Register() {
         email,
         password,
       });
-      res.data && window.location.href('/login');
+      window.location.replace('/login');
     } catch (err) {
       setError(true);
       console.log(err.message);

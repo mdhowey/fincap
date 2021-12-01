@@ -2,33 +2,28 @@ const mongoose = require('mongoose');
 
 const TransactionSchema = new mongoose.Schema(
   {
-    id: {
-      type: Number,
-      required: true,
-    },
     title: {
       type: String,
       required: true,
+    },
+    type: {
+      enum: ['Income', 'Expense'],
+    },
+    amount: {
+      type: String,
+      required: true,
+    },
+    notes: {
+      type: String,
     },
     planned: {
       type: Boolean,
       default: false,
       required: true,
     },
-    type: {
-      enum: ['Income', 'Expense', 'Transfer'],
-      required: true,
-    },
-    amount: {
-      type: String,
-      required: true,
-    },
-    acctId: {
-      type: String,
-      required: true,
-    },
-    notes: {
-      type: String,
+    userId: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
     },
   }, 
   { timestamps: true }
