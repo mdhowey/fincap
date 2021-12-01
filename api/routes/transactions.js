@@ -20,7 +20,7 @@ router.get('/transactions', async (req, res, next) => {
 });
 
 /* Add Transaction */
-router.post('/newTransaction', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const { title, type, amount, notes, planned } = req.body;
 
