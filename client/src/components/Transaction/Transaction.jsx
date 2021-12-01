@@ -1,12 +1,14 @@
 import classes from './Transaction.module.scss';
 import { FiTrash2 } from 'react-icons/fi';
 import { FiEdit } from 'react-icons/fi';
-import { useContext } from 'react';
-import { Context } from '../../context/Context';
 
-export default function Transaction({ transaction }) {
+export default function Transaction() {
 
-  const { deleteTransaction} = useContext(Context);
+  const transaction = {
+    type: 'expense',
+    title: 'Testing things',
+    amount: 500
+  }
 
   const sign = transaction.type === 'expense' ? '-' : '+';
 
@@ -19,8 +21,7 @@ export default function Transaction({ transaction }) {
         <FiTrash2 className={classes.tran__btn__delete} />
       </button>
       <button
-        className={classes.tran__btn}
-        onClick={() => deleteTransaction(transaction.id)}>
+        className={classes.tran__btn}>
         <FiEdit className={classes.tran__btn__edit} />
       </button>
     </li>

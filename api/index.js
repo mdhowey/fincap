@@ -18,9 +18,12 @@ mongoose.connect(process.env.MONGO_URL, {
   .then(console.log('Connected to MongoDB'))
   .catch(err => console.log(`========== Connection issue with MongoDB ========== ${err}`));
 
+const db = mongoose.connection;
+
 app.use('/api/auth', routes.auth);
-app.use('/api/account', routes.accounts);
+app.use('/api/users', routes.users);
+app.use('/api/accounts', routes.accounts);
 
 app.listen(PORT, () => {
-  console.log(`API is running on port on ${PORT}`);
+  console.log(`API is running on port ${PORT}`);
 });

@@ -3,6 +3,20 @@ const User = require('../models/User');
 const Account = require('../models/Account');
 const bcrypt = require('bcrypt');
 
+/* Get User */
+router.get('/:id', async (req, res) => {
+  if(!req.params.id) return console.log('No user found');
+  try {
+    const user = await User.findById({ _id: req.params.id });
+
+    // return console.log(user);
+
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 /* Update */
 router.put('/:id', async(req, res) => {
   if(req.body.userId === req.params.id) {

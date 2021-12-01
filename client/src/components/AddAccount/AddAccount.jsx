@@ -1,35 +1,19 @@
 import { useState, useContext } from 'react';
 import classes from './AddAccount.module.scss';
 import { Context } from '../../context/Context';
-import axios from 'axios';
 
 export default function AddAccount() {
+  const { user } = useContext(Context);
+
   const [acctName, setAcctName] = useState('');
   const [currency, setCurrency] = useState('');
   const [balance, setBalance] = useState('');
-  const { user } = useContext(Context)
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newAcct = {
-      acctName,
-      currency,
-      balance,
-      userId: user._id,
-    };
-    console.log(newAcct);
-    try {
-      const createdPost = await axios.post('http://localhost:5000/api/account/newAcct', newAcct);
-      console.log("Here is createdPost: " + createdPost)
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const [owner, setOwner] = useState(user._id);
 
   return (
     <div className={classes.addAcct}>
       <h4 className={classes.addAcct__head}>New Account</h4>
-      <form className={classes.addAcct__form} onSubmit={handleSubmit}>
+      <form className={classes.addAcct__form}>
         <div className={classes.addAcct__form__grp}>
           <input
             className={classes.addAcct__form__grp__item}

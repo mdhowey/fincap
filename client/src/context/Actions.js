@@ -14,18 +14,3 @@ export const LoginFailure = () => ({
 export const Logout = () => ({
   type: 'LOGOUT',
 });
-
-export const DeleteTrans = (id) => ({
-  type: 'DELETE_TRANS',
-  payload: id
-});
-
-export const DeleteTransaction = (id) => ({
-    type: 'DELETE_TRANSACTION',
-    paylod: id
-});
-
-export const addTransaction = (transaction) => ({
-    type: 'ADD_TRANSACTION',
-    paylod: transaction
-});

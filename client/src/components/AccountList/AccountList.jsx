@@ -1,19 +1,14 @@
-import { useContext } from 'react';
-import { AcctContext } from '../../context/acctContext/acctContext';
-import Account from '../Account/Account';
 import classes from './AccountList.module.scss';
+import Account from '../Account/Account';
 
-export default function AccountList({ account }) {
-  const { accounts } = useContext(AcctContext);
-
+export default function AccountList(props) {
+  
   return (
     <div className={classes.acctList}>
-      <AcctContext.Provider>
-        <h4 className={classes.acctList__head}>Accounts</h4>
-        <ul className={classes.acctList__list}>
-          {accounts.map(account => (<Account key={account._id} account={account} />))}
-        </ul>
-      </AcctContext.Provider>
+      <h4 className={classes.acctList__head}>Accounts</h4>
+      <ul className={classes.acctList__list}>
+        <Account />
+      </ul>
     </div>
   )
 }
