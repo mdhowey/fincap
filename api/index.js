@@ -22,7 +22,7 @@ const db = mongoose.connection;
 
 app.use('/api/auth', routes.auth);
 app.use('/api/users', routes.users);
-app.use('/api/accounts', routes.accounts);
+app.use('/api/transactions', routes.transactions);
 
 app.listen(PORT, () => {
   console.log(`API is running on port ${PORT}`);

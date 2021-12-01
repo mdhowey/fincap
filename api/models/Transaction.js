@@ -8,15 +8,10 @@ const TransactionSchema = new mongoose.Schema(
     },
     type: {
       enum: ['Income', 'Expense'],
-      required: true,
     },
     amount: {
       type: String,
       required: true,
-    },
-    acctId: {
-      type: mongoose.Types.ObjectId,
-      ref: 'Account',
     },
     notes: {
       type: String,
@@ -25,6 +20,10 @@ const TransactionSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
       required: true,
+    },
+    userId: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
     },
   }, 
   { timestamps: true }
