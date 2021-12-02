@@ -21,11 +21,25 @@ export default function AuthFunc() {
     localStorage.setItem('auth-token', '');
     navigate('/login')
   };
+  const acctDelete = () => {
+    setUserCredentials({
+
+      token: undefined,
+      user: undefined,
+
+    });
+
+    localStorage.setItem('auth-token', '');
+    navigate('/login')
+  };
 
   return (
     <nav className={classes.authfunc}>
       {userCredentials ? (
+        <>
+          <button onClick={acctDelete}>Delete Account</button>
           <button onClick={logout}>Logout</button>
+        </>
       ) : (
         <>
           <button onClick={register}>register</button>

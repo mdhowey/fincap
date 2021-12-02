@@ -158,6 +158,7 @@ router.post('/tokenIsValid', async (req, res) => {
   }
 });
 
+/* Get User */
 router.get('/', auth, async (req, res) => {
 
   const user = await User.findById(req.user);
@@ -168,6 +169,23 @@ router.get('/', auth, async (req, res) => {
       id: user._id,
     }
   );
+});
+
+/* Delete User */
+router.delete('/delete', auth, async (req, res) => {
+  try {
+    
+    const deletedUser = await User.findByIdAndDelete(req.user);
+    res.json(deletedUser);
+
+  } catch (err) {
+
+    res.status(500).json(
+      {
+        error: err.message,
+      }
+    );
+  }
 });
 
 module.exports = router;

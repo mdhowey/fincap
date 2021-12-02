@@ -8,6 +8,7 @@ import {
 import axios from 'axios';
 
 import Home from "./pages/home/Home";
+import EditTrans from './pages/editTransaction/EditTrans'
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Context from './context/Context';
@@ -74,6 +75,7 @@ function App() {
       <Context.Provider value={{ userCredentials, setUserCredentials }}>
         <Routes>
           <Route exact path='/' element={userCredentials ? <Home /> : <Login />} />
+          <Route exact path='/edit' element={userCredentials ? <EditTrans /> : <Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
         </Routes>

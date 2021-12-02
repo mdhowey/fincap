@@ -2,6 +2,7 @@
 
 .authfunc {
   display: flex;
+  justify-content: space-between;
   padding: $spacing-sm;
   & button {
     padding: $spacing-sm $spacing-lg;
