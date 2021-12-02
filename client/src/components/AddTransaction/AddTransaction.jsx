@@ -1,31 +1,35 @@
-import { useState, useContext } from 'react';
+import { useState, useRef } from 'react';
 import classes from './AddTransaction.module.scss';
-import { Context } from '../../context/Context';
+import axios from 'axios';
 
 
 export default function AddTransaction() {
 
-  const { addTransaction } = useContext(Context); 
-
   const [title, setTitle] = useState('');
-  const [type, setType] = useState([]);
-  const [amount, setAmount] = useState();
-  const [account, setAccount] = useState([]);
+  const [type, setType] = useState('');
+  const [amount, setAmount] = useState('');
   const [planned, setPlanned] = useState(false);
   const [notes, setNotes] = useState('');
 
-  const handleSubmit = e => {
+  // How do you I get new transactions into TransactionList????
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const newTransaction = {
-      title,
-      amount,
-      account,
-      planned,
-      notes,
+    try {
+      const res = await axios.post
+      (
+        'http://localhost/5000/api/transactions/', 
+      {
+        title,
+        type,
+        amount,
+        planned,
+        notes,
+      });
+      res.data && window.location.replace('/'); 
+    } catch (err) {
+      console.log(err);
     }
-
-    addTransaction(newTransaction);
   }
 
   return (
@@ -40,7 +44,6 @@ export default function AddTransaction() {
             onChange={(e) => setTitle(e.target.value)} 
             placeholder='Title'
           />
-          {/* DROPDOWN w/ [ENUM types] */}
           <input 
             className={classes.addtrans__form__grp__item} 
             type='text'
@@ -52,18 +55,10 @@ export default function AddTransaction() {
         <div className={classes.addtrans__form__grp}>
           <input 
             className={classes.addtrans__form__grp__item} 
-            type='number'
+            type='text'
             value={amount}
             onChange={(e) => setAmount(e.target.value)} 
             placeholder='Amount'
-          />
-          {/* DROPDOWN w/ user ACCOUNTS */}
-          <input 
-            className={classes.addtrans__form__grp__item} 
-            type='text' 
-            value={account}
-            onChange={(e) => setAccount(e.target.value)}
-            placeholder='Account'
           />
         </div>
         <div className={classes.addtrans__form__grp}>
@@ -82,7 +77,9 @@ export default function AddTransaction() {
             id='planned__toggle' 
             type='checkbox' 
             value={planned}
-            onChange={(e) => setPlanned(e.target.value)}
+            // having issues with getting toggle to change state 
+            // in component... 
+            onChange={(e) => setPlanned(!e.target.value)}
             placeholder='Planned'
           />
           <label htmlFor="planned__toggle"></label>

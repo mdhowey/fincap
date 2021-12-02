@@ -1,6 +1,12 @@
 import classes from './IncExpLedger.module.scss';
 
 export default function IncExpLedger() {
+
+  // I want to show the total amount of income
+  // and the total amount of expense depending
+  // on type --> if income + income 
+  // if expense + expense
+
   return (
     <div className={classes.incExp}>
       <div className={classes.incExp__item}>
