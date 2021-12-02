@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import classes from './AddTransaction.module.scss';
 import axios from 'axios';
 
@@ -18,8 +18,11 @@ export default function AddTransaction() {
     try {
       const res = await axios.post
       (
-        'http://localhost/5000/api/transactions/', 
+        'http://localhost:5000/api/transactions/', 
       {
+        headers: {
+          "Content-Type": "application/json",
+        },
         title,
         type,
         amount,
@@ -31,11 +34,11 @@ export default function AddTransaction() {
       console.log(err);
     }
   }
-
+  
   return (
     <div className={classes.addtrans}>
       <h4 className={classes.addtrans__head}>New Transaction</h4>
-      <form className={classes.addtrans__form} onSubmit={handleSubmit}>
+      <form className={classes.addtrans__form} onSubmit={(e) => (handleSubmit(e))}>
         <div className={classes.addtrans__form__grp}>
           <input 
             className={classes.addtrans__form__grp__item} 
@@ -79,13 +82,13 @@ export default function AddTransaction() {
             value={planned}
             // having issues with getting toggle to change state 
             // in component... 
-            onChange={(e) => setPlanned(!e.target.value)}
+            onChange={(e) => setPlanned(!planned)}
             placeholder='Planned'
           />
           <label htmlFor="planned__toggle"></label>
         </div>
         <div className={classes.addtrans__form__btncont}>
-          <button className={classes.addtrans__form__btncont__submit}></button>
+          <button type='submit' className={classes.addtrans__form__btncont__submit}></button>
         </div>
       </form>
     </div>

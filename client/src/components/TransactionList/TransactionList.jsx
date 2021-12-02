@@ -1,17 +1,28 @@
-import { useContext, useEffect } from 'react';
 import Transaction from '../Transaction/Transaction';
 import classes from './TransactionList.module.scss';
-// import { TransContext } from '../../context/Context';
+import axios from 'axios';
 
 export default function TransactionList(props) {
-  // const { transactions, getAllTrans } = useContext(TransContext);
   const { transactions } = props; 
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
-  // useEffect(() => {
-    // getAllTrans();
-  // })
+  const deleteTransaction = async (e) => {
+    try {
+      const res = await axios.delete
+        (
+          'http://localhost:5000/api/transactions/:id', 
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+      });
+      res.data && window.location.replace('/'); 
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className={classes.transList}>

@@ -14,7 +14,7 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/transactions/')
+    axios.get('/transactions')
       .then((res) => {
         setData(res.data);
       })
