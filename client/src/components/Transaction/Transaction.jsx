@@ -1,13 +1,7 @@
 import classes from './Transaction.module.scss';
 import { FiTrash2 } from 'react-icons/fi';
 
-export default function Transaction() {
-
-  const transaction = {
-    type: 'expense',
-    title: 'Hard Coded',
-    amount: 500
-  }
+export default function Transaction({ transaction }) {
 
   const sign = transaction.type === 'expense' ? '-' : '+';
 

@@ -23,14 +23,14 @@ export default function Home() {
       })
   }, []);
 
-  const transactions = data;
+  const transactions = data.data;
   console.log(transactions);
 
   return (
     <div className={classes.home}>
       <Header />
         <IncExpLedger />
-        <TransactionList props={data} />
+        <TransactionList transactions={transactions} />
         <AddTransaction />
       <Footer />
     </div>
