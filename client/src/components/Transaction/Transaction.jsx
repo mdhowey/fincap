@@ -1,15 +1,15 @@
 import classes from './Transaction.module.scss';
 import { FiTrash2 } from 'react-icons/fi';
-import { FiEdit } from 'react-icons/fi';
+import { AiOutlineEdit } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
-export default function Transaction() {
+export default function Transaction({ transaction, deleteTransaction }) {
+  const navigate = useNavigate();
+  //, {state: transaction}
+  const edit = () => navigate('/edit', {state: transaction});
 
-  const transaction = {
-    type: 'expense',
-    title: 'Testing things',
-    amount: 500
-  }
-
+  console.log(transaction);
+ 
   const sign = transaction.type === 'expense' ? '-' : '+';
 
   return (
@@ -17,12 +17,16 @@ export default function Transaction() {
       <p className={classes.tran__title}>{transaction.title}</p>
       <p className={classes.tran__amt}>{sign} ${Math.abs(transaction.amount)}</p>
       <button
-        className={classes.tran__btn}>
+        className={classes.tran__btn}
+        onClick={() => (deleteTransaction(transaction._id))}>
         <FiTrash2 className={classes.tran__btn__delete} />
       </button>
       <button
         className={classes.tran__btn}>
-        <FiEdit className={classes.tran__btn__edit} />
+        <AiOutlineEdit 
+          className={classes.tran__btn__edit}
+          onClick={edit}
+        />
       </button>
     </li>
   )

@@ -1,35 +1,46 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import classes from './Login.module.scss';
-import { Link } from 'react-router-dom';
-import { Context } from '../../context/Context';
+import Context from '../../context/Context';
 import axios from 'axios';
+import ErrorNotice from '../../components/ErrorNotice/ErrorNotice';
 
 export default function Login() {
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const [error, setError] = useState(false);
-  const { dispatch, isFetching } = useContext(Context);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState();
+  const { setUserCredentials } = useContext(Context);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({type: 'LOGIN_START'});
-    console.log('Processing request...');
     try {
-      const res = await axios.post('/auth/login', {
-        email: emailRef.current.value,
-        password: passwordRef.current.value,
-      });
-      dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
-      res.data && window.location.replace('/');
-      console.log('It worked!');
+      const user = { email, password };
+
+      const res = await axios.post
+        (
+          "http://localhost:5000/api/auth/login", 
+          user
+        );
+
+        setUserCredentials({
+
+          token: res.data.token,
+          user: res.data.user,
+
+        });
+
+        localStorage.setItem('auth.token', res.data.token);
+
     } catch (err) {
-      dispatch({ type: 'LOGIN_FAILURE' });
-      setError(true);
-      window.location.replace('/register');
-      console.log('Something went wrong!');
+
+      console.log(err);
+
+    } finally {
+      navigate('/');
     }
-  }
+  };
 
   return (
     <div className={classes.login}>
@@ -37,26 +48,29 @@ export default function Login() {
       <form 
         className={classes.login__form}
         onSubmit={handleSubmit}>
+        {error && 
+          <ErrorNotice 
+            message={error} 
+            clearError={() => setError(undefined)} 
+          />
+        }
         <input 
           type='text'
           placeholder='email'
-          ref={emailRef} 
+          onChange={e => setEmail(e.target.value)}
         />
         <input 
           type='password'
           placeholder='password'
-          ref={passwordRef}
+          onChange={e => setPassword(e.target.value)}
         />
         <button 
           className={classes.login__form__login}
           type='submit'
-          disabled={isFetching}>
+          >
           Login
         </button>
       </form>
-      {error && <p className={classes.login__error}>
-        Wrong password or email
-      </p>}
       <p>Don't have an account?</p>
       <Link 
         to='/register' 

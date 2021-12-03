@@ -1,31 +1,57 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Context from '../../context/Context';
+// import ErrorNotice from '../../components/ErrorNotice/ErrorNotice';
 import classes from './Register.module.scss';
 
 export default function Register() {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [passwordCheck, setPasswordCheck] = useState();
+  const [error, setError] = useState();
+
+  const { setUserCredentials } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(false);
-    if (email === '' || password === '') {
-      setError([true, 'All fields required.']);
-      return;
-    }
+
     try{
-      const res = await axios.post('/auth/register', {
-        username,
-        email,
-        password,
+
+      const newUser = { username, email, password, passwordCheck };
+
+      await axios.post
+        (
+          'http://localhost:5000/api/auth/register', 
+          newUser
+        );
+
+      const res = await axios.post
+      (
+        "http://localhost:5000/api/auth/login", 
+        {
+          email,  
+          password
+        }
+      );
+
+      setUserCredentials({
+
+        token: res.data.token,
+        user: res.data.user,
+
       });
-      window.location.replace('/login');
+
+      localStorage.setItem('auth-token', res.data.token);
+      navigate('/');
+
     } catch (err) {
-      setError(true);
-      console.log(err.message);
+      setError(err);
+    } finally {
+      navigate('/login');
     }
   };
 
@@ -41,7 +67,7 @@ export default function Register() {
           onChange={e => setUsername(e.target.value)}
         />
         <input 
-          type='text'
+          type='email'
           placeholder='email'
           onChange={e => setEmail(e.target.value)}
         />
@@ -49,6 +75,11 @@ export default function Register() {
           type='password'
           placeholder='password'
           onChange={e => setPassword(e.target.value)}
+        />
+        <input 
+          type='password'
+          placeholder='confirm password'
+          onChange={e => setPasswordCheck(e.target.value)}
         />
         <button 
           className={classes.register__form__register}

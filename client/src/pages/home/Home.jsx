@@ -7,36 +7,29 @@ import IncExpLedger from '../../components/IncExpLedger/IncExpLedger';
 import TransactionList from '../../components/TransactionList/TransactionList';
 import AddTransaction from '../../components/AddTransaction/AddTransaction';
 import Footer from '../../components/Footer/Footer';
+import axios from 'axios';
 
 export default function Home() {
   
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    fetch('http://localhost:5000/api/transactions/')
+    axios.get('http://localhost:5000/api/transactions/')
       .then((res) => {
         setData(res.data);
       })
       .catch ((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
+        console.log(err);
       })
   }, []);
 
-  const transactions = [data, loading, error];
-
-  console.log(transactions);
+  const transactions = data.data;
 
   return (
     <div className={classes.home}>
       <Header />
         <IncExpLedger />
-        <TransactionList />
+        <TransactionList transactions={transactions} />
         <AddTransaction />
       <Footer />
     </div>
