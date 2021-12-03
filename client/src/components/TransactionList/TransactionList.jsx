@@ -7,16 +7,10 @@ export default function TransactionList(props) {
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
-  const deleteTransaction = async (e) => {
+  const deleteTransaction = async (id) => {
     try {
-      const res = await axios.delete
-        (
-          'http://localhost:5000/api/transactions/:id', 
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-
+      const res = await axios.delete(`http://localhost:5000/api/transactions/${id}`, {
+       
       });
       res.data && window.location.replace('/'); 
     } catch (err) {

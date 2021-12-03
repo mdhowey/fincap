@@ -25,6 +25,27 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+/* Edit Transaction */
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { title, type, amount, notes, planned } = req.body;
+    const transaction = await Transaction.findByIdAndUpdate(req.params.id, 
+      {
+        $set: req.body,
+      },
+      { 
+        new: true,
+      }
+    );
+
+    const editedTrans = transaction.save();
+
+    return res.status(200).json(editedTrans);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
 /* Delete Transaction */
 router.post('/:id', async (req, res, next) => {
   try {

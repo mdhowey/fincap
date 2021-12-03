@@ -6,14 +6,8 @@ export default function Footer() {
   return (
     <div className={classes.footer}>
       <div className={classes.footer__btncont}>
-        <BsGithub 
-          className={classes.footer__btncont__icon} 
-          href=''
-        />
-        <AiOutlineLinkedin 
-          className={classes.footer__btncont__icon} 
-          href=''
-        />
+        <a href='https://github.com/mdhowey' target='blank'><BsGithub className={classes.footer__btncont__icon} /></a>
+        <a href='https://www.linkedin.com/in/dev-howey/' target='blank'><AiOutlineLinkedin className={classes.footer__btncont__icon} /></a> 
       </div>
       <p>&copy; FinCap by devhowey</p>
     </div>

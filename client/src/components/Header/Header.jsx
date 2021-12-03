@@ -9,7 +9,6 @@ export default function Header() {
       <Link to='/'>
         <h1>FinCap</h1>
       </Link>
-      <AuthFunc />
     </div>
   )
 };

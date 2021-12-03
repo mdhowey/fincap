@@ -14,7 +14,7 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('/transactions')
+    axios.get('http://localhost:5000/api/transactions/')
       .then((res) => {
         setData(res.data);
       })
@@ -24,7 +24,6 @@ export default function Home() {
   }, []);
 
   const transactions = data.data;
-  console.log(transactions);
 
   return (
     <div className={classes.home}>
