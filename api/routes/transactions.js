@@ -47,11 +47,10 @@ router.put('/:id', async (req, res, next) => {
 });
 
 /* Delete Transaction */
-router.post('/:id', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
-    const transaction = await Transaction.findByIdAndRemove(req.params.id);
+    const transaction = await Transaction.findByIdAndDelete(req.params.id);
     if (!transaction) return res.status(404).json(err);
-    await transaction.remove();
     return res.status(200).json(transaction);
   } catch (err) {
     return res.status(500).json(err);

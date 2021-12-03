@@ -43,9 +43,11 @@ export default function EditTrans() {
 
       );
       res.data && window.location.replace('/'); 
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
+
   }
   
   return (
@@ -106,7 +108,7 @@ export default function EditTrans() {
             <label htmlFor="planned__toggle"></label>
           </div>
           <div className={classes.addtrans__form__btncont}>
-            <button type='submit' className={classes.addtrans__form__btncont__submit}>Add</button>
+            <button type='submit' className={classes.addtrans__form__btncont__submit}>Submit</button>
           </div>
           <div className={classes.addtrans__form__btncont}>
             <button onClick={cancel} className={classes.addtrans__form__btncont__cancel}>cancel</button>

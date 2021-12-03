@@ -30,7 +30,8 @@ export default function TransactionList(props) {
             transaction => (
               <Transaction 
                 key={transaction._id} 
-                transaction={transaction} 
+                transaction={transaction}
+                deleteTransaction={deleteTransaction} 
               />
             )
           )}

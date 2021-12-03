@@ -8,7 +8,7 @@ export default function Transaction({ transaction, deleteTransaction }) {
   //, {state: transaction}
   const edit = () => navigate('/edit', {state: transaction});
 
-  // console.log(transaction);
+  console.log(transaction);
  
   const sign = transaction.type === 'expense' ? '-' : '+';
 
@@ -18,7 +18,7 @@ export default function Transaction({ transaction, deleteTransaction }) {
       <p className={classes.tran__amt}>{sign} ${Math.abs(transaction.amount)}</p>
       <button
         className={classes.tran__btn}
-        onChange={(e) => (deleteTransaction(e))}>
+        onClick={() => (deleteTransaction(transaction._id))}>
         <FiTrash2 className={classes.tran__btn__delete} />
       </button>
       <button
